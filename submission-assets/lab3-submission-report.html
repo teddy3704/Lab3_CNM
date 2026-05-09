@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lab 3 CNM - Ho so nop bai</title>
+  <style>
+    :root {
+      --ink: #17202d;
+      --muted: #5b6777;
+      --accent: #0f766e;
+      --accent-soft: #e4f5f2;
+      --paper: #f7f2ea;
+      --line: #d8ddd4;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Arial, sans-serif;
+      color: var(--ink);
+      background: linear-gradient(180deg, #f8f4ed 0%, #f2ece2 100%);
+    }
+
+    .page {
+      min-height: 100vh;
+      padding: 24mm 18mm;
+      page-break-after: always;
+    }
+
+    .page:last-child {
+      page-break-after: auto;
+    }
+
+    .cover {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 30px;
+      line-height: 1.12;
+    }
+
+    h2 {
+      margin: 0 0 10px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 22px;
+    }
+
+    p {
+      margin: 0;
+      line-height: 1.8;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 12px;
+    }
+
+    .info-card {
+      padding: 16px 18px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.8);
+    }
+
+    .info-card strong {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--ink);
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .screen-frame {
+      border: 1px solid rgba(23, 32, 45, 0.12);
+      border-radius: 22px;
+      overflow: hidden;
+      background: #ffffff;
+      box-shadow: 0 24px 60px rgba(23, 32, 45, 0.08);
+    }
+
+    .screen-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 14px;
+    }
+
+    .screen-meta p {
+      max-width: 75%;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.75);
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .caption {
+      margin-top: 10px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    @page {
+      size: A4 landscape;
+      margin: 10mm;
+    }
+  </style>
+</head>
+<body>
+  <section class="page cover">
+    <span class="eyebrow">Ho so nop bai</span>
+    <h1>Lab 3 CNM - Website Portfolio/Blog Premium</h1>
+    <p>
+      Tai lieu nay tong hop cac anh chup man hinh cua website da hoan thien de phuc vu nop bai.
+      Giao dien duoc trien khai bang Next.js App Router, co route dong, Server Actions, API Routes,
+      form validation va he thong UI dong bo.
+    </p>
+
+    <div class="info-grid">
+      <div class="info-card">
+        <strong>Ho ten</strong>
+        <span>Phan Van Tien</span>
+      </div>
+      <div class="info-card">
+        <strong>MSSV</strong>
+        <span>2212472</span>
+      </div>
+      <div class="info-card">
+        <strong>Lop</strong>
+        <span>CTK46PM</span>
+      </div>
+      <div class="info-card">
+        <strong>Repository</strong>
+        <span>github.com/teddy3704/Lab3_CNM</span>
+      </div>
+    </div>
+
+    <div class="info-card">
+      <strong>Noi dung anh chup</strong>
+      <p>Trang chu, blog, blog chi tiet, du an, guestbook server-first, guestbook client-side va lien he.</p>
+    </div>
+  </section>
+
+  <section class="page">
+    <div class="screen-meta">
+      <div>
+        <h2>1. Trang chu</h2>
+        <p>Giao dien hero premium, CTA, the dieu huong nhanh va khu vuc command center.</p>
+      </div>
+      <span class="badge">/</span>
+    </div>
+    <div class="screen-frame"><img src="01-trang-chu.png" alt="Trang chu" /></div>
+    <p class="caption">Anh chup toan trang cua trang chu sau khi hoan thien.</p>
+  </section>
+
+  <section class="page">
+    <div class="screen-meta">
+      <div>
+        <h2>2. Trang blog</h2>
+        <p>Danh sach bai viet lay du lieu that tu JSONPlaceholder va trinh bay theo ngon ngu thi giac thong nhat.</p>
+      </div>
+      <span class="badge">/blog</span>
+    </div>
+    <div class="screen-frame"><img src="02-blog.png" alt="Trang blog" /></div>
+    <p class="caption">Anh chup giao dien danh sach bai viet.</p>
+  </section>
+
+  <section class="page">
+    <div class="screen-meta">
+      <div>
+        <h2>3. Blog chi tiet</h2>
+        <p>Route dong hien thi noi dung bai viet, thong tin tac gia va cac binh luan noi bat.</p>
+      </div>
+      <span class="badge">/blog/1</span>
+    </div>
+    <div class="screen-frame"><img src="03-blog-chi-tiet.png" alt="Blog chi tiet" /></div>
+    <p class="caption">Anh chup route blog dong voi bo cuc day du.</p>
+  </section>
+
+  <section class="page">
+    <div class="screen-meta">
+      <div>
+        <h2>4. Trang du an</h2>
+        <p>Khu vuc portfolio trinh bay cac du an theo he card, badge va trang thai ro rang.</p>
+      </div>
+      <span class="badge">/projects</span>
+    </div>
+    <div class="screen-frame"><img src="04-du-an.png" alt="Trang du an" /></div>
+    <p class="caption">Anh chup trang trinh bay cac du an mo phong.</p>
+  </section>
+
+  <section class="page">
+    <div class="screen-meta">
+      <div>
+        <h2>5. Luu but server-first</h2>
+        <p>Guestbook xu ly gui va xoa du lieu thong qua Server Actions.</p>
+      </div>
+      <span class="badge">/guestbook</span>
+    </div>
+    <div class="screen-frame"><img src="05-luu-but-server.png" alt="Luu but server-first" /></div>
+    <p class="caption">Anh chup guestbook phien ban uu tien server.</p>
+  </section>
+
+  <section class="page">
+    <div class="screen-meta">
+      <div>
+        <h2>6. Luu but client-side</h2>
+        <p>Guestbook doi chieu voi huong fetch du lieu tu API route o phia client.</p>
+      </div>
+      <span class="badge">/guestbook-client</span>
+    </div>
+    <div class="screen-frame"><img src="06-luu-but-client.png" alt="Luu but client-side" /></div>
+    <p class="caption">Anh chup guestbook phien ban client-side.</p>
+  </section>
+
+  <section class="page">
+    <div class="screen-meta">
+      <div>
+        <h2>7. Trang lien he</h2>
+        <p>Trang lien he co form that, thong tin sinh vien va validation bang Zod.</p>
+      </div>
+      <span class="badge">/contact</span>
+    </div>
+    <div class="screen-frame"><img src="07-lien-he.png" alt="Trang lien he" /></div>
+    <p class="caption">Anh chup giao dien lien he sau khi hoan thien.</p>
+  </section>
+</body>
+</html>
