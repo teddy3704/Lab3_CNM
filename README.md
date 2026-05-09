@@ -1,36 +1,137 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Lab 3 CNM - Website Portfolio/Blog Premium
 
-## Getting Started
+Website được xây dựng bằng Next.js App Router theo hướng trình bày như một sản phẩm hoàn chỉnh, không chỉ dừng ở mức bài lab cơ bản. Dự án kết hợp giao diện premium, dữ liệu thật, route động, Server Actions, API Routes và hệ component tái sử dụng để tạo thành một website cá nhân có chiều sâu kỹ thuật.
 
-First, run the development server:
+## Thông tin sinh viên
+
+- Họ tên: Phan Văn Tiến
+- MSSV: 2212472
+- Lớp: CTK46PM
+- Email: 2212472@dlu.edu.vn
+- GitHub repo: https://github.com/teddy3704/Lab3_CNM
+
+## Mục tiêu dự án
+
+- Xây dựng website cá nhân theo phong cách portfolio/blog bằng Next.js 16.
+- Trình bày giao diện ở mức chỉnh chu, đồng bộ và có bản sắc riêng.
+- Thể hiện rõ các năng lực quan trọng của App Router: data fetching, route động, loading state, error boundary, API Routes và Server Actions.
+- Cá nhân hoá toàn bộ nội dung theo đúng thông tin sinh viên để sẵn sàng nộp bài và demo.
+
+## Tính năng nổi bật
+
+- Trang chủ phong cách premium với khối giới thiệu, dấu ấn cá nhân và command center mô tả mức sẵn sàng triển khai.
+- Blog dùng dữ liệu thật từ JSONPlaceholder, có danh sách bài viết, route chi tiết động, loading UI, error UI và trang không tìm thấy.
+- Guestbook theo hai hướng triển khai:
+	- Server-first với Server Actions.
+	- Client-side với `fetch` tới API Routes.
+- Form liên hệ dùng Server Actions kết hợp Zod để kiểm tra dữ liệu và phản hồi trạng thái gửi.
+- Hệ thống UI component riêng gồm `Button`, `Card`, `Badge`, `Input`, `Textarea`, `Label`, `Separator`.
+- Giao diện dùng typography, ambient background, glass surface và motion nhẹ để tạo cảm giác sản phẩm cao cấp.
+
+## Công nghệ sử dụng
+
+- Next.js 16.2.6
+- React 19.2.4
+- TypeScript 5
+- Tailwind CSS 4
+- Zod
+- Radix UI primitives
+- Lucide React
+- `class-variance-authority`, `clsx`, `tailwind-merge`
+
+## Các route chính
+
+| Route | Mô tả |
+| --- | --- |
+| `/` | Trang chủ premium, giới thiệu hồ sơ sinh viên và command center |
+| `/blog` | Danh sách bài viết lấy từ JSONPlaceholder |
+| `/blog/[id]` | Trang chi tiết bài viết, tác giả và bình luận |
+| `/projects` | Trang trưng bày các dự án theo ngôn ngữ portfolio |
+| `/guestbook` | Guestbook theo hướng server-first với Server Actions |
+| `/guestbook-client` | Guestbook theo hướng client-side với API Routes |
+| `/contact` | Trang liên hệ có form kiểm tra dữ liệu |
+| `/api/guestbook` | API lấy danh sách và tạo lời nhắn |
+| `/api/guestbook/[id]` | API xoá hoặc cập nhật lời nhắn |
+
+## Cấu trúc chức năng chính
+
+- `src/app`: các route App Router, loading UI, error boundary, API routes và Server Actions.
+- `src/components`: các component giao diện và khối chức năng dùng lại trên toàn site.
+- `src/components/ui`: bộ UI primitives tự xây dựng cho dự án.
+- `src/lib`: utility functions, validation schema và hồ sơ cá nhân.
+- `src/data`: dữ liệu guestbook mẫu dùng trong runtime.
+- `src/types`: kiểu dữ liệu cho blog và các API response.
+
+## Cách chạy dự án
+
+### 1. Cài dependency
+
+```bash
+npm install
+```
+
+### 2. Chạy môi trường phát triển
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Mở trình duyệt tại:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+http://localhost:3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 3. Kiểm tra lint
 
-## Learn More
+```bash
+npm run lint
+```
 
-To learn more about Next.js, take a look at the following resources:
+### 4. Build production
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+npm run build
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### 5. Chạy bản production cục bộ
 
-## Deploy on Vercel
+```bash
+npm run start
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Trạng thái xác minh
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Dự án đã được kiểm tra bằng các lệnh sau:
+
+```bash
+npm run lint
+npm run build
+```
+
+Kết quả: pass sạch ở trạng thái hiện tại trước khi push lên GitHub.
+
+## Ghi chú triển khai
+
+- Guestbook hiện lưu dữ liệu trong bộ nhớ runtime, nên dữ liệu sẽ reset khi server khởi động lại.
+- Form liên hệ hiện mô phỏng xử lý phía server và ghi log ở server, chưa kết nối cơ sở dữ liệu hoặc email service thật.
+- Blog sử dụng JSONPlaceholder nên dữ liệu bài viết, tác giả và bình luận được lấy từ API công khai.
+
+## Giá trị kỹ thuật thể hiện trong bài lab
+
+- Tổ chức code theo App Router hiện đại.
+- Kết hợp Server Components, Client Components và route handlers đúng vai trò.
+- Áp dụng validation rõ ràng bằng Zod.
+- Xây dựng UI system nhất quán thay vì làm từng trang rời rạc.
+- Nâng bài lab thành một sản phẩm có thể demo, kiểm tra và mở rộng tiếp.
+
+## Repository
+
+- GitHub: https://github.com/teddy3704/Lab3_CNM
+- Branch chính: `main`
+
+## Tác giả
+
+Phan Văn Tiến
+
+Sinh viên Công nghệ thông tin - CTK46PM
